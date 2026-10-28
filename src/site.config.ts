@@ -154,6 +154,8 @@ export const siteConfig = {
     scrollLength: 700,
     /** Pixel nudge applied to the dirty still so it lines up with the clean one. Tune with ?align=1. */
     washAlign: { dx: 0, dy: 0, scale: 1 },
+    /** Drawer header ribbon: a crop of this still around the car's flank and wheel (focus 0..1). */
+    ribbon: { still: "S7_pickup_golden", focusX: 0.6, focusY: 0.8 },
     /** Lights-on plays once after the first 1% of scroll, or after this idle time. */
     lightsOnIdleMs: 1800,
     chapters: [

@@ -9,8 +9,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "frames": "node scripts/build-frames.mjs",
-    "check-align": "node scripts/check-wash-align.mjs",
+    "frames": "tsx scripts/build-frames.mjs",
+    "check-align": "tsx scripts/check-wash-align.mjs",
     "seed": "tsx scripts/seed.ts",
     "create-owner": "tsx scripts/create-owner.ts",
     "test:visual": "playwright test"
