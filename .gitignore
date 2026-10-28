@@ -1,0 +1,18 @@
+node_modules/
+.next/
+out/
+tmp/
+.data/
+.env
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+test-results/
+playwright-report/
+.vercel
+.DS_Store
+# Higgsfield source files stay local; only the README is tracked
+assets-src/*
+!assets-src/README.md
+# pipeline cache
+.frames-cache.json
