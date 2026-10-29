@@ -16,3 +16,6 @@ assets-src/*
 !assets-src/README.md
 # pipeline cache
 .frames-cache.json
+
+# agent worktrees
+.claude/worktrees/
