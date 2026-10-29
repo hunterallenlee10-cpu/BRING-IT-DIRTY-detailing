@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { siteConfig, type Chapter } from "@/site.config";
 import manifest from "../../../public/frames/manifest.json";
-import { filmStore } from "@/lib/filmStore";
+import { filmStore, useFilm } from "@/lib/filmStore";
 import { scrollToY } from "@/lib/lenis";
 import { whenIdle } from "@/lib/idle";
 import { ChapterText } from "./ChapterText";
@@ -45,6 +45,8 @@ export function FilmStage() {
   const tagRef = useRef<HTMLDivElement>(null);
   const renderer = useRef<Renderer | null>(null);
   const [boot, setBoot] = useState(0);
+  // the loading readout only matters on the opening shot; deeper chapters fall back to the nearest frame anyway
+  const firstChapter = useFilm((s) => s.chapter === 0);
   const [align, setAlign] = useState<{ on: boolean; v: Align }>({ on: false, v: siteConfig.film.washAlign });
 
   useEffect(() => {
@@ -235,7 +237,7 @@ export function FilmStage() {
               <span className="text-red-hot">/</span> {c.hudTag!.text.replace(/^\/\s*/, "")}
             </div>
           ))}
-        {boot < 1 && (
+        {boot < 1 && firstChapter && (
           <div className="film-loading hud" role="status" aria-live="polite">
             LOADING STUDIO {Math.round(boot * 100)}%
             <span className="film-loading-bar" style={{ transform: `scaleX(${boot})` }} />
