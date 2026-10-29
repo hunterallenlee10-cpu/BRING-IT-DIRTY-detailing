@@ -19,3 +19,4 @@ assets-src/*
 
 # agent worktrees
 .claude/worktrees/
+.next-build/

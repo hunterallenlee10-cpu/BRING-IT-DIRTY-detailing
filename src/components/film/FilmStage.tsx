@@ -7,6 +7,7 @@ import { siteConfig, type Chapter } from "@/site.config";
 import manifest from "../../../public/frames/manifest.json";
 import { filmStore } from "@/lib/filmStore";
 import { scrollToY } from "@/lib/lenis";
+import { whenIdle } from "@/lib/idle";
 import { ChapterText } from "./ChapterText";
 import type { Align, FilmRenderer as Renderer } from "./FilmRenderer";
 
@@ -135,8 +136,11 @@ export function FilmStage() {
       },
     });
 
-    build();
-    idleTimer = window.setTimeout(() => renderer.current?.startLights(), siteConfig.film.lightsOnIdleMs);
+    // canvas + frame loading start after first paint (the poster image shows the same first frame)
+    const cancelIdle = whenIdle(() => {
+      build();
+      idleTimer = window.setTimeout(() => renderer.current?.startLights(), siteConfig.film.lightsOnIdleMs);
+    });
 
     let rz = 0;
     const onResize = () => {
@@ -152,6 +156,7 @@ export function FilmStage() {
 
     return () => {
       disposed = true;
+      cancelIdle();
       clearTimeout(idleTimer);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("orientationchange", onResize);

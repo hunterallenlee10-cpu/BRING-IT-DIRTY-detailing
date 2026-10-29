@@ -108,7 +108,8 @@ export default function BookingDrawer({ open, onClose, prefill, openKey }: { ope
     restoreFocus.current = document.activeElement as HTMLElement;
     lockScroll(true);
     const t = setTimeout(() => {
-      const first = panel.current?.querySelector<HTMLElement>('[role="radio"][tabindex="0"], button, input');
+      // start on the first car tile (the first thing to decide), not the close button
+      const first = panel.current?.querySelector<HTMLElement>('[role="radio"][tabindex="0"]') ?? panel.current?.querySelector<HTMLElement>("button, input");
       first?.focus({ preventScroll: true });
     }, 60);
     const onKey = (e: KeyboardEvent) => {

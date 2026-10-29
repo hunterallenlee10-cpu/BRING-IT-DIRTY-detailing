@@ -77,7 +77,7 @@ export function Services() {
                   {s.badge}
                 </span>
               </div>
-              <p className="relative mt-3 text-[17px] text-text/85">{s.tagline}</p>
+              <p className="relative mt-3 text-[17px] leading-[1.5] text-text/85 md:min-h-[3em]">{s.tagline}</p>
 
               <div className="relative mt-8 flex items-baseline gap-2">
                 <span className="text-[15px] text-muted">from</span>

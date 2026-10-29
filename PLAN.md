@@ -16,17 +16,17 @@ Working defaults (no blocking questions): every `{{PLACEHOLDER}}` uses the defau
 
 ## Phases
 
-- [ ] **0 Plan**: this file.
-- [ ] **1 Scaffold + design system**: Next app, tokens, fonts, `site.config.ts`, Logo / CtaPill / HighlightHeadline / Eyebrow / Chip / Grain, `/styleguide`.
-- [ ] **2 Asset pipeline**: `build-frames.mjs` (clips → frames, stills, gallery, manifest, hashing, placeholders, `ASSETS_TODO.md`), `check-wash-align.mjs`. Run it.
-- [ ] **3 The Film**: FilmStage, FrameSequence, LightsOn, WashWipe + Particles, ChapterText, StatusPill, ChapterRail, nav, BookingDock, mobile bar, reduced-motion stack. Playwright screenshots at 7 progress points × 2 viewports.
-- [ ] **4 Booking drawer UI**: 4 steps, zod, summary flip, success + confetti, dock prefill, mobile sheet, 409 + network error states.
-- [ ] **5 Backend**: migrations + RLS + `book_slot()`, seed, availability / bookings / questions / cron routes, `notify()` (Twilio, n8n), source attribution, rate limit. Race test.
-- [ ] **6 Owner OS**: login, middleware, shell, Leads (realtime, highlight, toast, detail panel), Overview, Bookings, Calendar, Automations, stub pages. Two-browser live test.
-- [ ] **7 Trust + SEO**: Services, Before/After, Reviews (placeholder-flagged), How it works, Area & Hours, FAQ (+JSON-LD), Final CTA, Footer, metadata, AutoWash JSON-LD, sitemap, robots, OG image.
-- [ ] **8 Real assets**: waits on Hunter's files in `assets-src/`.
-- [ ] **9 QA + polish**: Lighthouse, axe, keyboard, reduced motion, iOS quirks, slow 4G. README + LAUNCH_CHECKLIST.
-- [ ] **10 Deploy prep**: `vercel.json` (cron, frame caching), env list. **Ask before deploying or creating projects.**
+- [x] **0 Plan**: this file.
+- [x] **1 Scaffold + design system**: Next app, tokens, fonts, `site.config.ts`, Logo / CtaPill / HighlightHeadline / Eyebrow / Chip / Grain, `/styleguide`.
+- [x] **2 Asset pipeline**: `build-frames.mjs` (clips → frames, stills, gallery, manifest, hashing, placeholders, `ASSETS_TODO.md`), `check-wash-align.mjs`. Run it.
+- [x] **3 The Film**: FilmStage, FrameSequence, LightsOn, WashWipe + Particles, ChapterText, StatusPill, ChapterRail, nav, BookingDock, mobile bar, reduced-motion stack. Playwright screenshots at 7 progress points × 2 viewports.
+- [x] **4 Booking drawer UI**: 4 steps, zod, summary flip, success + confetti, dock prefill, mobile sheet, 409 + network error states.
+- [x] **5 Backend**: migrations + RLS + `book_slot()`, seed, availability / bookings / questions / cron routes, `notify()` (Twilio, n8n), source attribution, rate limit. Race test.
+- [x] **6 Owner OS**: login, middleware, shell, Leads (realtime, highlight, toast, detail panel), Overview, Bookings, Calendar, Automations, stub pages. Two-browser live test.
+- [x] **7 Trust + SEO**: Services, Before/After, Reviews (placeholder-flagged), How it works, Area & Hours, FAQ (+JSON-LD), Final CTA, Footer, metadata, AutoWash JSON-LD, sitemap, robots, OG image.
+- [ ] **8 Real assets**: waits on Hunter's files in `assets-src/` (then `npm run frames` + `npm run check-align`).
+- [x] **9 QA + polish**: Lighthouse, axe, keyboard, reduced motion, iOS quirks, slow 4G. README + LAUNCH_CHECKLIST.
+- [x] **10 Deploy prep**: `vercel.json` (cron), frame caching headers, env list. **Not deployed: ask first.**
 
 ## Risks
 
