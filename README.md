@@ -8,7 +8,7 @@ A swappable website template for premium car-detailing studios, in three connect
 
 The demo brand is **REDLINE DETAIL STUDIO** (Frederick, MD). Every brand string, price, hour and asset path lives in `src/site.config.ts`.
 
-Screens (placeholder art until the Higgsfield files land):
+Screens (photoreal assets generated in Higgsfield: Nano Banana Pro stills, Kling 3.0 clips):
 
 ![Film, desktop](docs/screenshots/film-desktop.webp)
 ![Film, mobile](docs/screenshots/film-mobile.webp)
@@ -122,7 +122,7 @@ Loading: the `S2` poster `<img fetchpriority="high">` paints first. The canvas, 
 4. `npm run check-align` writes a difference image of S0 vs S1 to `tmp/` and suggests `film.washAlign`. Then open `/?align=1` (dev): the wash shows a 50% difference blend, the arrow keys nudge it, `[` `]` scale it, and the panel prints the values to paste into the config.
 5. Tune `focalX` / `focalY` per chapter so the car stays framed on ultra-wide and tall screens.
 
-Budgets: desktop frames 1600w WebP q62 (≤70KB each), mobile 720×1280 q60 (≤35KB). The script warns when a chapter goes over. The placeholder film is 7.2MB desktop / 3.3MB mobile.
+Budgets: desktop frames 1600w WebP q62 (≤70KB each), mobile 720×1280 q60 (≤35KB). The script warns when a chapter goes over. The current film is 13.7MB desktop / 6.8MB mobile, loaded progressively.
 
 Commit `public/` after running the pipeline. Vercel has no ffmpeg, so frames are built locally.
 

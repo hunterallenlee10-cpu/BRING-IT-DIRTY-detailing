@@ -523,6 +523,17 @@
   display: flex;
   flex-direction: column;
   max-width: min(92vw, 900px);
+  isolation: isolate;
+}
+/* soft dark pool behind each headline so white type holds up over bright reflections in real footage */
+.film-ch-copy::before {
+  content: "";
+  position: absolute;
+  inset: -28% -22%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(5, 5, 6, 0.62), rgba(5, 5, 6, 0.34) 55%, rgba(5, 5, 6, 0));
+  opacity: clamp(0, calc(var(--p-lead) * 1.5), 1);
 }
 .film-ch[data-pos="bottom-left"] .film-ch-copy {
   left: clamp(16px, 5.5vw, 96px);
