@@ -87,6 +87,8 @@ const statKey = (p) => {
   const s = fs.statSync(p);
   return `${path.basename(p)}:${s.size}:${Math.round(s.mtimeMs)}`;
 };
+/** Procedural outputs also depend on the art code itself. */
+const ART = createHash("sha1").update(fs.readFileSync(path.join(ROOT, "scripts/lib/placeholder-art.mjs"))).digest("hex").slice(0, 10);
 const hash = (...parts) => createHash("sha1").update(JSON.stringify([PIPELINE_VERSION, ...parts])).digest("hex").slice(0, 16);
 const fresh = (key, h, outputs) => cache[key] === h && outputs.every((o) => fs.existsSync(o));
 const done = (key, h) => (nextCache[key] = h);
@@ -155,7 +157,7 @@ async function buildStills() {
       }
       const widths = STILL_W[variant];
       const outs = widths.flatMap((w) => [`${srcName}-${w}.webp`, `${srcName}-${w}.avif`].map((f) => path.join(dir, f)));
-      const h = hash("still", srcName, statKey(own), statKey(mobile ? findImage(name) : null), focalFor(name));
+      const h = hash("still", srcName, statKey(own), statKey(mobile ? findImage(name) : null), focalFor(name), own ? null : ART);
       if (fresh("still:" + srcName, h, outs)) continue;
       const W = widths[0];
       const H = mobile ? Math.round((W * 16) / 9) : Math.round((W * 9) / 16);
@@ -172,7 +174,7 @@ async function buildStills() {
   // drawer ribbon crop
   const rb = siteConfig.film.ribbon;
   const ribbonOut = path.join(dir, "ribbon-880.webp");
-  const rh = hash("ribbon", rb, statKey(findImage(rb.still)));
+  const rh = hash("ribbon", rb, statKey(findImage(rb.still)), findImage(rb.still) ? null : ART);
   if (!fresh("ribbon", rh, [ribbonOut])) {
     const big = await stillBuffer(rb.still, 2400, 1350, false, focalFor(rb.still));
     const meta = { width: 2400, height: 1350 };
@@ -251,7 +253,7 @@ async function buildChapterFrames() {
         continue;
       }
       const per = ch.clips.map((_, i) => Math.floor(target / ch.clips.length) + (i < target % ch.clips.length ? 1 : 0));
-      const h = hash("frames", ch.id, variant, target, ch.focalX, sources.map((s) => (s.parts || []).map(statKey)), ch.clips.map((c) => (CLIP_STILLS[c] || []).map((n) => statKey(realStill(n, mobile) || findImage(n)))));
+      const h = hash("frames", ch.id, variant, target, ch.focalX, sources.map((s) => (s.parts || []).map(statKey)), ch.clips.map((c) => (CLIP_STILLS[c] || []).map((n) => statKey(realStill(n, mobile) || findImage(n)))), ART);
       const outs = Array.from({ length: target }, (_, i) => path.join(outDir, String(i + 1).padStart(4, "0") + ".webp"));
       const isPlaceholder = sources.some((s) => !s.own);
       if (isPlaceholder) manifest.chapters[ch.id].placeholder = true;
@@ -316,7 +318,7 @@ async function buildGallery() {
     const own = findImage(name);
     if (!own) sub(`${name}.png`, "missing", "procedural placeholder art");
     const outs = [1600, 800].map((w) => path.join(dir, `${name}-${w}.webp`));
-    const h = hash("gallery", name, statKey(own));
+    const h = hash("gallery", name, statKey(own), own ? null : ART);
     if (fresh("gallery:" + name, h, outs)) continue;
     let buf;
     if (own) buf = await coverCrop(own, 1600, 1200);
@@ -330,7 +332,7 @@ async function buildGallery() {
   const og = findImage("OG_share");
   if (!og) sub("OG_share.jpg", "missing", "S7_pickup_golden composition (placeholder)");
   const ogOut = path.join(PUB, "og", "og-base.jpg");
-  const h = hash("og", statKey(og), statKey(findImage("S7_pickup_golden")));
+  const h = hash("og", statKey(og), statKey(findImage("S7_pickup_golden")), og ? null : ART);
   if (!fresh("og", h, [ogOut])) {
     fs.mkdirSync(path.dirname(ogOut), { recursive: true });
     const buf = og ? await coverCrop(og, 1200, 630, 0.6, 0.5) : await stillBuffer("S7_pickup_golden", 1200, 630, false, { x: 0.45, y: 0.55 });

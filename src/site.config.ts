@@ -25,6 +25,7 @@ export interface Chapter {
   /** Cover-fit focal point, 0..1. Keeps the car framed on ultra-wide and tall screens. */
   focalX: number;
   focalY: number;
+  /** Small "/ 01 · ARRIVE" chip above the headline. Empty = none. */
   eyebrow: string;
   lead: string;
   highlight: string;
@@ -156,6 +157,8 @@ export const siteConfig = {
     washAlign: { dx: 0, dy: 0, scale: 1 },
     /** Drawer header ribbon: a crop of this still around the car's flank and wheel (focus 0..1). */
     ribbon: { still: "S7_pickup_golden", focusX: 0.6, focusY: 0.8 },
+    /** The last chapter's frames end here (global progress); the golden-hour still holds after it. */
+    holdFrom: 0.9,
     /** Lights-on plays once after the first 1% of scroll, or after this idle time. */
     lightsOnIdleMs: 1800,
     chapters: [
@@ -188,7 +191,7 @@ export const siteConfig = {
         frames: { desktop: 0, mobile: 0 },
         focalX: 0.62,
         focalY: 0.55,
-        eyebrow: "WASH",
+        eyebrow: "",
         lead: "SCROLL TO",
         highlight: "WASH IT.",
         tone: "orange",
@@ -224,7 +227,7 @@ export const siteConfig = {
         frames: { desktop: 120, mobile: 80 },
         focalX: 0.5,
         focalY: 0.5,
-        eyebrow: "POLISH + CERAMIC",
+        eyebrow: "",
         lead: "SWIRLS OUT.",
         highlight: "GLASS ON.",
         tone: "amber",

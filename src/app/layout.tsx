@@ -36,8 +36,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${anton.variable} ${inter.variable} ${jbm.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${anton.variable} ${inter.variable} ${jbm.variable}`}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <style id="theme-vars" dangerouslySetInnerHTML={{ __html: themeCss() }} />
       </head>
       <body>{children}</body>

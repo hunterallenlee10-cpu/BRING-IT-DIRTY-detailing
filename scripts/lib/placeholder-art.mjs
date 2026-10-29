@@ -151,7 +151,7 @@ function car(o, geo, id, r) {
     for (let i = 0; i < 320; i++) {
       const x = geo.X(r());
       const y = geo.Y(0.05 + Math.pow(r(), 1.6) * 0.2);
-      const rad = geo.L * (0.0015 + Math.pow(r(), 2.2) * 0.009);
+      const rad = geo.L * (0.001 + Math.pow(r(), 2.6) * 0.0065);
       s += `<ellipse cx="${f(x)}" cy="${f(y)}" rx="${f(rad * (1 + r()))}" ry="${f(rad)}" fill="${r() > 0.5 ? "#4a3324" : "#7a5d45"}" opacity="${f(0.35 + r() * 0.5)}"/>`;
     }
     for (let i = 0; i < 26; i++) {
@@ -178,7 +178,7 @@ function car(o, geo, id, r) {
 
 // ---------- studio ----------
 function layout(W, H, mobile, vehicle) {
-  if (mobile) return { ceilY: 0.27 * H, floorY: 0.56 * H, x0: 0.06 * W, gy: 0.75 * H, L: 0.88 * W, door: [0.02 * W, 0.36 * W], shelf: [0.8 * W, 1.02 * W] };
+  if (mobile) return { ceilY: 0.2 * H, floorY: 0.43 * H, x0: 0.05 * W, gy: 0.6 * H, L: 0.9 * W, door: [0.02 * W, 0.36 * W], shelf: [0.8 * W, 1.02 * W] };
   const L = vehicle === "supercar" ? 0.56 * W : 0.6 * W;
   return { ceilY: 0.29 * H, floorY: 0.62 * H, x0: 0.35 * W, gy: 0.87 * H, L, door: [0.035 * W, 0.29 * W], shelf: [0.875 * W, 0.995 * W] };
 }
