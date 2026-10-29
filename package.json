@@ -9,8 +9,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "frames": "node scripts/build-frames.mjs",
-    "check-align": "node scripts/check-wash-align.mjs",
+    "frames": "tsx scripts/build-frames.mjs",
+    "check-align": "tsx scripts/check-wash-align.mjs",
     "seed": "tsx scripts/seed.ts",
     "create-owner": "tsx scripts/create-owner.ts",
     "test:visual": "playwright test"
@@ -26,9 +26,11 @@
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-hook-form": "^7.91.0",
+    "server-only": "^0.0.1",
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@eslint/eslintrc": "^3.3.7",
     "@playwright/test": "^1.64.1",
     "@tailwindcss/postcss": "^4.3.3",

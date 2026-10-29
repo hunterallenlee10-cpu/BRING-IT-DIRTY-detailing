@@ -25,6 +25,7 @@ export interface Chapter {
   /** Cover-fit focal point, 0..1. Keeps the car framed on ultra-wide and tall screens. */
   focalX: number;
   focalY: number;
+  /** Small "/ 01 · ARRIVE" chip above the headline. Empty = none. */
   eyebrow: string;
   lead: string;
   highlight: string;
@@ -154,6 +155,10 @@ export const siteConfig = {
     scrollLength: 700,
     /** Pixel nudge applied to the dirty still so it lines up with the clean one. Tune with ?align=1. */
     washAlign: { dx: 0, dy: 0, scale: 1 },
+    /** Drawer header ribbon: a crop of this still around the car's flank and wheel (focus 0..1). */
+    ribbon: { still: "S7_pickup_golden", focusX: 0.6, focusY: 0.8 },
+    /** The last chapter's frames end here (global progress); the golden-hour still holds after it. */
+    holdFrom: 0.9,
     /** Lights-on plays once after the first 1% of scroll, or after this idle time. */
     lightsOnIdleMs: 1800,
     chapters: [
@@ -186,7 +191,7 @@ export const siteConfig = {
         frames: { desktop: 0, mobile: 0 },
         focalX: 0.62,
         focalY: 0.55,
-        eyebrow: "WASH",
+        eyebrow: "",
         lead: "SCROLL TO",
         highlight: "WASH IT.",
         tone: "orange",
@@ -222,7 +227,7 @@ export const siteConfig = {
         frames: { desktop: 120, mobile: 80 },
         focalX: 0.5,
         focalY: 0.5,
-        eyebrow: "POLISH + CERAMIC",
+        eyebrow: "",
         lead: "SWIRLS OUT.",
         highlight: "GLASS ON.",
         tone: "amber",
@@ -278,6 +283,31 @@ export const siteConfig = {
     howTitle: { lead: "HOW IT", highlight: "WORKS." },
     areaTitle: { lead: "FIND", highlight: "THE STUDIO." },
     faqTitle: { lead: "GOOD", highlight: "QUESTIONS." },
+  },
+
+  /* ---------- Phase 7: trust + SEO sections copy (below the film) ---------- */
+  sections: {
+    servicesSizeLabel: "Vehicle size",
+    servicesFootnote: "Final price confirmed at drop-off after a quick look under the lights. Heavy contamination or pet hair may add time.",
+    bookThis: "BOOK THIS",
+    beforeLabel: "BEFORE",
+    afterLabel: "AFTER",
+    sampleNote: "Sample images",
+    sliderLabel: "Drag to compare before and after",
+    reviewsCta: "Read every review on Google",
+    placeholderTag: "Placeholder",
+    howSub: "No calls back and forth. No surprise invoice.",
+    areaSub: "Drop-offs by appointment. Call or text any time we're open.",
+    areaCitiesLabel: "We serve",
+    hoursLabel: "Hours",
+    callLabel: "Call or text",
+    mapCta: "Show map",
+    directions: "Get directions",
+    finalPhoneLabel: "Rather talk? Call",
+    footerTagline: "Hand wash, paint correction and ceramic coating.",
+    ownerLogin: "Owner login",
+    ogTagline: "DETAILING & CERAMIC",
+    faqCallLead: "Something else on your mind? Call",
   },
 
   /** "dropoff" = customers bring the car to the studio. "onsite" = mobile detailer that comes to them. */
