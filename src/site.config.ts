@@ -285,6 +285,31 @@ export const siteConfig = {
     faqTitle: { lead: "GOOD", highlight: "QUESTIONS." },
   },
 
+  /* ---------- Phase 7: trust + SEO sections copy (below the film) ---------- */
+  sections: {
+    servicesSizeLabel: "Vehicle size",
+    servicesFootnote: "Final price confirmed at drop-off after a quick look under the lights. Heavy contamination or pet hair may add time.",
+    bookThis: "BOOK THIS",
+    beforeLabel: "BEFORE",
+    afterLabel: "AFTER",
+    sampleNote: "Sample images",
+    sliderLabel: "Drag to compare before and after",
+    reviewsCta: "Read every review on Google",
+    placeholderTag: "Placeholder",
+    howSub: "No calls back and forth. No surprise invoice.",
+    areaSub: "Drop-offs by appointment. Call or text any time we're open.",
+    areaCitiesLabel: "We serve",
+    hoursLabel: "Hours",
+    callLabel: "Call or text",
+    mapCta: "Show map",
+    directions: "Get directions",
+    finalPhoneLabel: "Rather talk? Call",
+    footerTagline: "Hand wash, paint correction and ceramic coating.",
+    ownerLogin: "Owner login",
+    ogTagline: "DETAILING & CERAMIC",
+    faqCallLead: "Something else on your mind? Call",
+  },
+
   /** "dropoff" = customers bring the car to the studio. "onsite" = mobile detailer that comes to them. */
   serviceMode: "dropoff" as "dropoff" | "onsite",
   howItWorks: {
