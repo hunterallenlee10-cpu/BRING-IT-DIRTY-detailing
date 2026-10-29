@@ -1,7 +1,7 @@
 import { siteConfig } from "@/site.config";
 import { DAY_KEYS, weekdayLong } from "./time";
 
-const siteUrl = () => (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
+import { siteUrl } from "./siteUrl";
 const real = (u: string) => !!u && u !== "#";
 
 /** schema.org AutoWash (a LocalBusiness) built entirely from site.config.ts. */

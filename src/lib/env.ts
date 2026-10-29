@@ -1,3 +1,5 @@
+import { siteUrl } from "./siteUrl";
+
 /** Feature flags derived from env. Server-side only for secrets; NEXT_PUBLIC_* are safe in the client. */
 export const env = {
   supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
@@ -18,7 +20,7 @@ export const env = {
     return !!(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
   },
   get siteUrl() {
-    return process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    return siteUrl();
   },
 };
 
