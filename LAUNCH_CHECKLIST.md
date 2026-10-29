@@ -36,9 +36,9 @@ Every brand variable in the master prompt was left as a `{{PLACEHOLDER}}`, so th
 
 - [ ] **Reviews**: all three items in `reviews.items` have `isPlaceholder: true` and render with a dashed border and a "Placeholder" tag. Replace them with real Google reviews (copy the text exactly, use first name + last initial) and set `isPlaceholder: false`. Never invent reviews.
 - [ ] **Rating badge**: `reviews.rating` 4.9 / `reviews.count` "120+" are template values (`ratingIsPlaceholder: true` shows a Placeholder tag). Use the studio's real Google numbers and set it to `false`.
-- [ ] **Before/after gallery**: placeholder art, flagged "Sample images" by `gallery.isSample: true`. Replace `G1…G4` with real job photos and set `isSample: false`.
-- [ ] **Film and stills**: procedural placeholder art until the Higgsfield files are in `assets-src/`. See `ASSETS_TODO.md` for exactly which files are still missing. Then `npm run frames`, `npm run check-align`, tune `film.washAlign` and the per-chapter `focalX` / `focalY`.
-- [ ] **OG image**: `OG_share.jpg` (currently cropped from the placeholder S7).
+- [ ] **Before/after gallery**: AI-generated sample cars (brand badges removed), flagged "Sample images" by `gallery.isSample: true`. Replace `G1…G4` with real job photos and set `isSample: false`.
+- [ ] **Film and stills**: photoreal AI footage generated in Higgsfield (all 38 files in `assets-src/`, nothing missing in `ASSETS_TODO.md`). The demo car is unbadged but its styling resembles a real production sports car. For a real studio, consider regenerating with their own hero car or real footage, then `npm run frames` and `npm run check-align`.
+- [ ] **OG image**: `OG_share.jpg` is AI-generated from the golden-hour shot. Swap in the studio's own photo if they have one.
 
 ## Accounts and env
 

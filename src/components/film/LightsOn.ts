@@ -21,7 +21,8 @@ export class LightsOn {
     private reduced: boolean,
     private clipFrames = 0,
   ) {
-    this.duration = reduced ? 300 : clipFrames ? (clipFrames / 30) * 1000 : 900;
+    // a real lights-on clip plays over ~1.8s so the strips visibly flicker on one by one
+    this.duration = reduced ? 300 : clipFrames ? 1800 : 900;
   }
 
   get started() {

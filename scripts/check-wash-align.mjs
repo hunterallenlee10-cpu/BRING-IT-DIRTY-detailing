@@ -25,8 +25,10 @@ const find = (base) => {
 
 async function edges(file, W) {
   const { data, info } = await sharp(file)
+    .flatten({ background: "#000" }) // drop alpha: AI PNGs are RGBA and break the edge filter
     .resize(W)
     .greyscale()
+    .normalise()
     .convolve({ width: 3, height: 3, kernel: [-1, -1, -1, -1, 8, -1, -1, -1, -1] })
     .raw()
     .toBuffer({ resolveWithObject: true });

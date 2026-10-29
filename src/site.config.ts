@@ -170,7 +170,7 @@ export const siteConfig = {
         range: [0, 0.1],
         clips: ["C1_lights_on"],
         stills: ["S2_dirty_dark", "S1_dirty_lit"],
-        frames: { desktop: 30, mobile: 24 },
+        frames: { desktop: 48, mobile: 36 },
         focalX: 0.62,
         focalY: 0.55,
         eyebrow: "ARRIVE",

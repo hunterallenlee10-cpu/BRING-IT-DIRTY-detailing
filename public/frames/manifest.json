@@ -1,10 +1,10 @@
 {
   "version": "3",
-  "generatedAt": "2026-10-29T00:03:28.450Z",
+  "generatedAt": "2026-10-29T01:29:09.830Z",
   "chapters": {
     "arrive": {
-      "desktop": 0,
-      "mobile": 0,
+      "desktop": 48,
+      "mobile": 36,
       "width": 1600,
       "height": 900,
       "mobileWidth": 720,
@@ -27,7 +27,7 @@
       "height": 900,
       "mobileWidth": 720,
       "mobileHeight": 1280,
-      "placeholder": true
+      "placeholder": false
     },
     "polish": {
       "desktop": 120,
@@ -36,7 +36,7 @@
       "height": 900,
       "mobileWidth": 720,
       "mobileHeight": 1280,
-      "placeholder": true
+      "placeholder": false
     },
     "pickup": {
       "desktop": 60,
@@ -45,37 +45,8 @@
       "height": 900,
       "mobileWidth": 720,
       "mobileHeight": 1280,
-      "placeholder": true
+      "placeholder": false
     }
   },
-  "placeholders": [
-    "S0_clean_lit.png",
-    "S0_clean_lit_m.png",
-    "S1_dirty_lit.png",
-    "S1_dirty_lit_m.png",
-    "S2_dirty_dark.png",
-    "S2_dirty_dark_m.png",
-    "S3_inspect_close.png",
-    "S3_inspect_close_m.png",
-    "S4_swirl_macro.png",
-    "S4_swirl_macro_m.png",
-    "S5_polished_macro.png",
-    "S5_polished_macro_m.png",
-    "S6_bead_macro.png",
-    "S6_bead_macro_m.png",
-    "S7_pickup_golden.png",
-    "S7_pickup_golden_m.png",
-    "C1_lights_on.mp4",
-    "C1_lights_on_m.mp4",
-    "C2_push_inspect.mp4",
-    "C3_into_macro.mp4",
-    "C2_push_inspect_m.mp4",
-    "C3_into_macro_m.mp4",
-    "C4_polish.mp4",
-    "C5_bead.mp4",
-    "C4_polish_m.mp4",
-    "C5_bead_m.mp4",
-    "C6_pull_back.mp4",
-    "C6_pull_back_m.mp4"
-  ]
+  "placeholders": []
 }
