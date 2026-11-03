@@ -87,6 +87,10 @@ export function Footer() {
         <p className="border-t border-line pt-6 text-[14px] text-muted">
           © {new Date().getFullYear()} {B.legalName}. {B.city}.
         </p>
+        <p className="mt-2 text-[14px] text-muted">
+          Website by{" "}
+          <a href="https://www.leeenterprisesunlimited.com/" target="_blank" rel="noopener" className="underline decoration-white/20 underline-offset-4 hover:text-text">Lee Enterprises Unlimited</a>
+        </p>
       </div>
     </footer>
   );
